@@ -23,6 +23,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/', Index::class)->name('home');
+    Route::post('/', Index::class)->name('home');
 });
 
 

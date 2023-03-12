@@ -7,7 +7,7 @@
         </div>
     </x-slot>
     <div class="py-2">
-        <div class="max-w-7xl mb-2 mx-auto py-4 px-4 sm:px-2 lg:px-8 bg-white shadow flex flex-col h-96">
+        <div class="max-w-7xl mb-2 mx-auto py-4 px-4 sm:px-2 lg:px-8 bg-white shadow flex flex-col">
 
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 my-2  shadow-zinc-500/50 flex justify-around content-center h-full {{$visible}} h-96">
@@ -28,20 +28,20 @@
                 </div>
             </div>
 
-            <!-- 
+
             @if($action == 1)
-            @livewire("gestor-form.create")
+            @livewire("gestor-formularios.create")
             @endif
 
-            @if($action == 2)
-            @livewire('gestor-form.edit')
-            @endif
+            <!-- @if($action == 2)
+            @livewire('gestor-formularios.edit')
+            @endif -->
 
-            @if($action == 3)
-            @livewire('gestor-form.delete')
+            <!-- @if($action == 3)
+            @livewire('gestor-formularios.delete')
             @endif -->
 
         </div>
     </div>
-    @include("livewire.gestor-formularios.validacionesJS")
+    <!-- @include("livewire.gestor-formularios.validacionesJS") -->
 </div>

@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             creadorUsuario::class,
+            CamposFormulariosSeeder::class,
+            ReglasValidacionesSeeder::class,
+            ProcesoSeeder::class,
+            EstadosSeeder::class,
+            TipoSeguimientosSeeder::class,
         ]);
     }
 }

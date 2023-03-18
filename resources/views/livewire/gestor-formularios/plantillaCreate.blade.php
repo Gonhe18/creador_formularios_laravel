@@ -43,7 +43,6 @@
    <input type="hidden" name="entidad" id="entidad">
    <input type="hidden" name="propiedades" id="propiedades">
 
-   <hr>
 
    <div class="w-full py-2 bg-cyan-100 font-bold text-black leading-tight rounded-full shadow-md flex justify-evenly">
       <span class="mx-2 text-sm">Recuerda agregar el campo antes de guardar el formulario</span>

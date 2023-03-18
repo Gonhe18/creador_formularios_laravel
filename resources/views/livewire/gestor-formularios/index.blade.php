@@ -8,8 +8,6 @@
     </x-slot>
     <div class="py-2">
         <div class="max-w-7xl mb-2 mx-auto py-4 px-4 sm:px-2 lg:px-8 bg-white shadow flex flex-col">
-
-
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-4 my-2  shadow-zinc-500/50 flex justify-around content-center h-full {{$visible}} h-96">
                 <div class="grid content-center">
                     <a href="javascript:void(0)" wire:click="action(1)">
@@ -43,5 +41,6 @@
 
         </div>
     </div>
+    @include("livewire.selectMultipleJS")
     <!-- @include("livewire.gestor-formularios.validacionesJS") -->
 </div>

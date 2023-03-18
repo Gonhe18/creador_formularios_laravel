@@ -1,8 +1,9 @@
 <script>
-   window.addEventListener('editMultiple', ent => {
-      let data = cargarDatos();
-      actualizarInput(data, ent.detail)
-   })
+   // window.addEventListener('editMultiple', ent => {
+   //    console.log(ent.detail)
+   //    let data = cargarDatos();
+   //    actualizarInput(data, ent.detail)
+   // })
 
    function cargarDatos() {
       let valores = [];
@@ -27,7 +28,7 @@
    function eliminar(id, ent) {
       let tipos = cargarDatos();
       if (tipos.includes(id)) {
-         delete tipos[tipos.indexOf(id)]
+         tipos.splice(tipos.indexOf(id), 1)
          actualizarInput(tipos, ent)
       }
    }

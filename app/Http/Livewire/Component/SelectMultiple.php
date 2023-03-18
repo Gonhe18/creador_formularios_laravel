@@ -24,6 +24,71 @@ class SelectMultiple extends Component
     public $nameHidden;
     public $validacionHidden;
 
+    public $reglasValidacion;
+    public $agregar;
+    public $eliminarTodos;
+    public $agregarTodos;
+
+
+    // public function recuperoInfo($id)
+    // {
+    //     // dd($id);
+
+
+    //     $this->dispatchBrowserEvent('editMultiple', 'r_validacion');
+    // }
+
+
+
+
+
+
+    public function agregar()
+    {
+        if ($this->seleccionador != null && $this->seleccionador !=  '') {
+            $reglas = Reglas_validacion_model::where('regla', $this->seleccionador)->first();
+            $this->seleccionados[$reglas->regla] = $reglas->ref;
+            unset($this->selectPrincipal[$reglas->regla]);
+        }
+        // $this->emit('selected', $this->seleccionados);
+    }
+
+    public function agregarTodos()
+    {
+        $campo = Campos_formularios_model::whereIn('id', json_decode($this->campos))
+            ->get();
+        $reglas =  Reglas_validacion_model::all();
+
+        foreach ($campo as $camp) {
+            foreach ($reglas as $val) {
+                if (in_array($camp->id, json_decode($val->campos))) {
+                    $this->seleccionados[$val->regla] = $val->ref;
+                }
+            }
+        }
+        $this->reset(['selectPrincipal']);
+        // $this->emit('selected', $this->seleccionados);
+    }
+
+    public function eliminar($id)
+    {
+        $reglas = Reglas_validacion_model::where('regla', $id)->first();
+
+        $this->selectPrincipal[$reglas->regla] =  $reglas->ref;
+
+        unset($this->seleccionados[$id]);
+        $this->reset(['seleccionador']);
+        // $this->emit('selected', $this->seleccionados);
+    }
+
+    public function eliminarTodos()
+    {
+        $this->mount();
+        $this->reset(['seleccionador', 'seleccionados']);
+
+        // $this->emit('selected', $this->seleccionados);
+    }
+
     public function mount()
     {
         $campo = Campos_formularios_model::whereIn('id', json_decode($this->campos))
@@ -39,8 +104,6 @@ class SelectMultiple extends Component
             }
         }
     }
-
-
 
     public function render()
     {
